@@ -63,3 +63,6 @@ gem 'haml-rails'
 
 # Use OmniAuth for GitHub authentication
 gem 'omniauth-github'
+
+# Specify Ruby version for Heroku
+ruby '2.4.1'
