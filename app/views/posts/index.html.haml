@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%h1 Listing posts
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Body
+      %th Author
+      %th
+      %th
+      %th
+
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td= post.title
+        %td= post.body
+        %td= post.author
+        %td= link_to 'Show', post
+        - if signed_in?
+          %td= link_to 'Edit', edit_post_path(post)
+          %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+- if signed_in?
+  = link_to 'New Post', new_post_path

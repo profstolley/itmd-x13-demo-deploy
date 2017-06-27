@@ -1,0 +1,7 @@
+%ul
+  %li= @user.uid
+  %li= @user.name
+  %li= @user.email
+  %li= image_tag @user.image_url
+
+%p= "The session helper thinks I am #{current_user.name}"

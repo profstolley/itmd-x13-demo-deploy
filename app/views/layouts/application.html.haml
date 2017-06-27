@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Userland
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      %p
+        - if signed_in?
+          = "Welcome, #{current_user.name}"
+          = link_to 'Log Out', logout_path
+        - else
+          = link_to 'Log In', github_login_path
+
+    = yield
